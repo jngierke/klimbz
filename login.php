@@ -3,19 +3,19 @@ include("base.php");
 if(!empty($_POST['username']) && !empty($_POST['password']))
 {
 	$username = mysql_real_escape_string($_POST['username']);
-    $password = md5($_POST['password']);
-    $checklogin = mysql_query("SELECT * FROM users WHERE Username = '".$username."' AND Password = '".$password."'") or die('Query failed: ' . mysql_error());
+    $password = ($_POST['password']);
+    $checklogin = mysql_query("SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'") or die('Query failed: ' . mysql_error());
 
     if(mysql_num_rows($checklogin) == 1)
     {
     	$row = mysql_fetch_assoc($checklogin);
-    	print_r($row);
+    	//print_r($row);
         
-        $_SESSION['Username'] = $row['username'];
+        $_SESSION['username'] = $row['username'];
         $_SESSION['user_id'] = $row['user_id'];
 
       
-        header('Location: home.php');
+        header('Location: main.php');
         exit();
     }
     else
@@ -34,7 +34,15 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>klimbz</title>
 
-    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
   <form class="form-horizontal" role="form" action="login.php" method="post">
@@ -56,5 +64,10 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
     </div>
   </div>
 </form>
-  </body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    </body>
 </html>
