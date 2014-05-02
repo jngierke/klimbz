@@ -23,7 +23,7 @@ include("base.php");
   <body>
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-		<?php echo $_SESSION['Username']; ?> <span class="caret"></span> 
+		<?php echo $_SESSION['username']; ?> <span class="caret"></span> 
 	  </button>
 	  <ul class="dropdown-menu" role="menu">
 		<li><a href="logout.php">Logout</a></li>
