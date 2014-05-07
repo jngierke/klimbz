@@ -19,38 +19,31 @@ $category = $level = $setter = $name = "";
 if ($_SERVER["POST"]) {
 	if (empty($_POST["category"])) {
 		$categoryErr = "Missing";
-
-}
+	}
 	else {
-		$category = $_POST["category"]
-	
+		$category = $_POST["category"];	
 	}
 	
 	if (empty($_POST["level"])) {
 		$levelErr = "Missing";
 
-}
+	}
 	else {
-		$level = $_POST["level"]
-	
+		$level = $_POST["level"];
 	}
 	
 	if (empty($_POST["setter"])) {
 		$setterErr = "Missing";
-
-}
+	}
 	else {
-		$setter = $_POST["setter"]
-	
+		$setter = $_POST["setter"];
 	}
 	
 	if (empty($_POST["name"])) {
 		$nameErr = "Missing";
-
 }
 	else {
-		$name = $_POST["name"]
-	
+		$name = $_POST["name"];	
 	}
 }
 
