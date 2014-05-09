@@ -56,14 +56,32 @@ if ($_SERVER["POST"]) {
 	<title>So, whatcha klimbz?</title>
 </head>
 <body>
-	<form name="new_klimbz" method="post" action="kompleted_klimbz.php"
-					
-			<input type="radio" name="category" value="lead" /> lead
-			<input type="radio" name="category" value="top-rope" /> top-rope
-			<input type="radio" name="category" value="boulder" /> boulder 
+	<form name="new_klimbz" method="post" action="kompleted_klimbz.php">
+	
+		<div class="radio">
+  		  <label>
+    		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> lead
+		  </label>
+		</div>
+		
+		<div class="radio">
+		  <label>
+			<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> top-rope 
+		  </label>
+		</div>
+		
+		<div class="radio">
+		  <label>
+			<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> boulder 
+		  </label>
+		</div>
+		
+	
+			<p>Name</p>
+				<input type="text" name="Name" class="form-control" placeholder="Text input">
 
 			<p>Rating</p>
-			<select name="Level">
+			<select class="form-control" name="Level">
 				<option value="5.4">5.4</option>
 				<option value="5.5">5.5</option>
 				<option value="5.6">5.6</option>
@@ -80,16 +98,12 @@ if ($_SERVER["POST"]) {
 				<option value="V4">V4</option>
 				<option value="V5">V5</option>	
 			</select>
-		
 			
 			<p>Setter</p>
-				<input type="text" name="Setter" size="15" maxlength="5"/></p>
+				<input type="text" name="Setter" class="form-control" placeholder="Text input">
 	
-			<p>Name
-				<input type="text" name="Name" size="15" maxlength="30"/></p>
-	
-			<p>Submit:
-				<input type="submit" name="Submit" value="submit"/></p>
+			<p></p>
+				<input type="submit" name="Submit" value="submit">
 		</form>
 
 			
