@@ -75,13 +75,15 @@ if ($_SERVER["POST"]) {
 			<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> boulder 
 		  </label>
 		</div>
-		
-	
-			<p>Name</p>
-				<input type="text" name="Name" class="form-control" placeholder="Text input">
-
-			<p>Rating</p>
-			<select class="form-control" name="Level">
+			
+		<div class="form-group">
+			<label for="namefield">Name</label>
+			<input type="text" name="Name" class="form-control" placeholder="Text input" id="namefield">
+		</div>
+			
+		<div class="form-group">
+			<label for="ratingselect">Rating</label>
+			<select class="form-control" name="Level" id="ratingselect">
 				<option value="5.4">5.4</option>
 				<option value="5.5">5.5</option>
 				<option value="5.6">5.6</option>
@@ -98,13 +100,17 @@ if ($_SERVER["POST"]) {
 				<option value="V4">V4</option>
 				<option value="V5">V5</option>	
 			</select>
+		</div>
 			
-			<p>Setter</p>
-				<input type="text" name="Setter" class="form-control" placeholder="Text input">
-	
-			<p></p>
-				<input type="submit" name="Submit" value="submit">
-		</form>
+		<div class="form-group">
+			<label for="setterfield">Setter</label>
+			<input type="text" name="Setter" class="form-control" placeholder="Text input" id="setterfield">
+		</div>
+  
+  		<div class="form-group">
+  			<button type="submit" name="Submit" value="submit" class="btn btn-default">Submit</button>
+		</div>		
+	</form>
 
 			
 		

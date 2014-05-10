@@ -15,7 +15,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
         $_SESSION['user_id'] = $row['user_id'];
 
       
-        header('Location: maintwo.php');
+        header('Location: addnewclimb.php');
         exit();
     }
     else
