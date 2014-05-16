@@ -9,8 +9,7 @@ if(!$_SESSION['username']) {
 // Performing SQL query
 $query = 'SELECT * FROM climbs';
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
-
-include("header.php") ; 
+ 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// This code will run when the page is loaded with a POST request from the form, but NOT when the page is initally loaded with a GET request
@@ -28,34 +27,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// check if category is provided and valid
 	$validcategory = array('lead', 'top-rope', 'boulder');
 	
-if (empty($_POST['category'])) {
-	$errors['category'] = 'Oops! You forgot something...';
-} elseif (!in_array($_POST['category'], $validcategory)) {
-	$errors['category'] = 'Oops, what kind of klimbz did you do?';
-}
+	if (empty($_POST['category'])) {
+		$errors['category'] = 'Oops! You forgot something...';
+	} elseif (!in_array($_POST['category'], $validcategory)) {
+		$errors['category'] = 'Oops, what kind of klimbz did you do?';
+	}
 
 	// name
-if (empty($_POST['name'])) {
-	$errors['name'] = 'Oops! You forgot something...';
-} 
+	if (empty($_POST['name'])) {
+		$errors['name'] = 'Oops! You forgot something...';
+	} 
 	
 	// check that rating is provided and valid
 	$validlevel = array('5.4', '5.5', '5.6', '5.7', '5.8', '5.9', '5.10', '5.11', '5.12', 'V0', 'V1', 'V2', 'V3', 'V4', 'V5');
 	
-if (empty($_POST['level'])) {
-	$errors['level'] = 'Oops! You forgot something...';
-} elseif (!in_array($_POST['level'], $validlevel)) {
-	$errors['level'] = 'The rating you provided was not from the list';
-}
+	if (empty($_POST['level'])) {
+		$errors['level'] = 'Oops! You forgot something...';
+	} elseif (!in_array($_POST['level'], $validlevel)) {
+		$errors['level'] = 'The rating you provided was not from the list';
+	}
 	
 	// check that the setter is provided and valid
 	$validsetter = array('CC', 'FN', 'RL', 'TJ', 'other');
 	
-if (empty($_POST['setter'])) {
-	$errors['setter'] = 'Oops! Who set your climb?';
-} elseif (!in_array($_POST['setter'], $validsetter)) {
-	$errors['setter'] = 'The setter you provided was not from the list';
-}
+	if (empty($_POST['setter'])) {
+		$errors['setter'] = 'Oops! Who set your climb?';
+	} elseif (!in_array($_POST['setter'], $validsetter)) {
+		$errors['setter'] = 'The setter you provided was not from the list';
+	}
 	
 	// only proceed with saving to the database if the $errors array is empty
 	if (empty($errors)) {
@@ -66,7 +65,7 @@ if (empty($_POST['setter'])) {
 		$setter = mysql_escape_string($_POST['setter']);
 		
 		// execute MySQL query to insert into table
-		mysql_query("INSERT INTO 'climbs' SET category = '$category', name = '$name', level = '$level', setter = '$setter'");
+		mysql_query("INSERT INTO climbs SET category = '$category', name = '$name', level = '$level', setter = '$setter'") or die('Query failed: ' . mysql_error());
 		
 		// redirect user to another page and exit
 		header("Location: kompleted_klimbz.php");
@@ -75,31 +74,50 @@ if (empty($_POST['setter'])) {
 	
 	// if there WERE errors, the rest of the page will load and $errors will be set
 }
+//print_r($errors);
 
+include("header.php") ;
 ?>
 
-<html>
-<head>
-	<title>So, whatcha klimbz?</title>
-</head>
-<body>
-	<form name="new_klimbz" method="post" action="kompleted_klimbz.php">
+	<form name="new_klimbz" method="post">
+		
+			<?php
+				// print out any errors
+				
+				if (!empty($errors)) {
+					echo "<div class='panel panel-danger'>";
+					echo 	"<div class='panel-heading'>";
+					echo		"<h3 class='panel-title'>There were errors in your form</h3>";
+					echo	"</div>";
+					echo	"<div class='panel-body'>";
+					echo		"<ul>";
+					
+					foreach ($errors AS $field => $error) {
+						echo		"<li>$field: $error</li>";
+					}
+					
+					echo		"</ul>";
+					echo	"</div>";
+					echo "</div>";
+				}
+			?>
+
 	
 		<div class="radio">
   		  <label>
-    		<input type="radio" name="category" id="optionsRadios1" value="option1"> lead
+    		<input type="radio" name="category" id="optionsRadios1" value="lead"> lead
 		  </label>
 		</div>
 		
 		<div class="radio">
 		  <label>
-			<input type="radio" name="category" id="optionsRadios2" value="option2"> top-rope 
+			<input type="radio" name="category" id="optionsRadios2" value="top-rope"> top-rope 
 		  </label>
 		</div>
 		
 		<div class="radio">
 		  <label>
-			<input type="radio" name="category" id="optionsRadios3" value="option3"> boulder 
+			<input type="radio" name="category" id="optionsRadios3" value="boulder"> boulder 
 		  </label>
 		</div>
 			

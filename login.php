@@ -3,7 +3,7 @@ include("base.php");
 if(!empty($_POST['username']) && !empty($_POST['password']))
 {
 	$username = mysql_real_escape_string($_POST['username']);
-    $password = ($_POST['password']);
+    $password = mysql_real_escape_string($_POST['password']);
     $checklogin = mysql_query("SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'") or die('Query failed: ' . mysql_error());
 
     if(mysql_num_rows($checklogin) == 1)
