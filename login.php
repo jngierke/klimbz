@@ -10,11 +10,11 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
     {
     	$row = mysql_fetch_assoc($checklogin);
     	//print_r($row);
-        
+
         $_SESSION['username'] = $row['username'];
         $_SESSION['user_id'] = $row['user_id'];
 
-      
+
         header('Location: addnewclimb.php');
         exit();
     }
@@ -34,8 +34,11 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>klimbz</title>
 
+
+		<link href="css/site.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,5 +72,5 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    </body>
+  </body>
 </html>

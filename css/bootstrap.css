@@ -12,6 +12,12 @@ html {
 }
 body {
   margin: 0;
+  background-color: #4BF2F2;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 960px;
 }
 article,
 aside,

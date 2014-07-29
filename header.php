@@ -19,6 +19,9 @@ include("base.php");
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="css/site.css" rel="stylesheet">
+
+    
   </head>
   <body>
 	<div class="btn-group">
@@ -29,3 +32,6 @@ include("base.php");
 		<li><a href="logout.php">Logout</a></li>
 	  </ul>
 	</div>
+  	<div id="header">
+  		<h1>klimbz</h1>
+  	</div>

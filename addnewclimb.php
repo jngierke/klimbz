@@ -103,27 +103,24 @@ include("header.php") ;
 			?>
 
 	
-		<div class="radio">
+		<div class="radio-inline">
   		  <label>
-    		<input type="radio" name="category" id="optionsRadios1" value="lead"> lead
-		  </label>
+    		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="lead">lead</label>
 		</div>
 		
-		<div class="radio">
+		<div class="radio-inline">
 		  <label>
-			<input type="radio" name="category" id="optionsRadios2" value="top-rope"> top-rope 
-		  </label>
+			<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="top">top</label>
 		</div>
 		
-		<div class="radio">
+		<div class="radio-inline">
 		  <label>
-			<input type="radio" name="category" id="optionsRadios3" value="boulder"> boulder 
-		  </label>
+			<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="boulder">boulder</label>
 		</div>
 			
 		<div class="form-group">
-			<label for="namefield">Name</label>
-			<input type="text" name="name" class="form-control" placeholder="Text input" id="namefield">
+			<label for="namefield">Whatcha klimbz?</label>
+			<input type="text" name="name" class="form-control" placeholder="Name" id="namefield">
 		</div>
 			
 		<div class="form-group">
@@ -151,15 +148,15 @@ include("header.php") ;
 			<label for="setterselect">Setter</label>
 			<select class="form-control" name="setter" id="setterselect">
 				<option>CC</option>
+				<option>Devon</option>
 				<option>TJ</option>
-				<option>RL</option>
 				<option>FN</option>
 				<option>other</option>
 			</select>
 		</div>
   
   		<div class="form-group">
-  			<button type="submit" name="Submit" value="submit" class="btn btn-default">Submit</button>
+  			<button type="submit" name="Submit" value="submit" class="btn btn-default">I klimbzed it!</button>
 		</div>		
 	</form>
 
