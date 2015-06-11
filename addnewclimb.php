@@ -5,10 +5,6 @@ if(!$_SESSION['username']) {
 	header("Location: login.php");
 	exit();
 }
-
-// Performing SQL query
-$query = 'SELECT * FROM climbs';
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
  
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -25,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$errors = array();
 
 	// check if category is provided and valid
-	$validcategory = array('lead', 'top-rope', 'boulder');
+	$validcategory = array('lead', 'top', 'boulder');
 	
 	if (empty($_POST['category'])) {
 		$errors['category'] = 'Oops! You forgot something...';
@@ -105,17 +101,17 @@ include("header.php") ;
 	
 		<div class="radio-inline">
   		  <label>
-    		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="lead">lead</label>
+    		<input type="radio" name="category" id="inlineRadio1" value="lead">lead</label>
 		</div>
 		
 		<div class="radio-inline">
 		  <label>
-			<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="top">top</label>
+			<input type="radio" name="category" id="inlineRadio2" value="top">top</label>
 		</div>
 		
 		<div class="radio-inline">
 		  <label>
-			<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="boulder">boulder</label>
+			<input type="radio" name="category" id="inlineRadio3" value="boulder">boulder</label>
 		</div>
 			
 		<div class="form-group">
